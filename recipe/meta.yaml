@@ -1,6 +1,5 @@
 {% set name = "flask-limiter" %}
 {% set version = "3.12" %}
-{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -11,17 +10,17 @@ source:
   sha256: f9e3e3d0c4acd0d1ffbfa729e17198dd1042f4d23c130ae160044fc930e21300
 
 build:
-  noarch: python
+  skip: True  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - pip
     - setuptools
   run:
-    - python >={{ python_min }}
+    - python
     - limits >=3.13
     - flask >=2
     - ordered-set >4,<5
@@ -33,7 +32,7 @@ test:
   commands:
     - pip check
   requires:
-    - python {{ python_min }}
+    - python
     - pip
 
 about:
