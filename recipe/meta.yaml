@@ -1,5 +1,5 @@
 {% set name = "flask-limiter" %}
-{% set version = "3.12" %}
+{% set version = "4.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/flask_limiter-{{ version }}.tar.gz
-  sha256: f9e3e3d0c4acd0d1ffbfa729e17198dd1042f4d23c130ae160044fc930e21300
+  sha256: ca11608fc7eec43dcea606964ca07c3bd4ec1ae89043a0f67f717899a4f48106
 
 build:
-  skip: True  # [py<310]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
